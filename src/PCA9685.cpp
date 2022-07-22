@@ -55,14 +55,3 @@ void PCA9685::setPWM(uint8_t pin, int on_value, int off_value)
     wiringPiI2CWriteReg8(I2C_FD, PIN0_OFF_L + PIN_MULTIPLYER * (pin - 1), off_value & 0xFF);
     wiringPiI2CWriteReg8(I2C_FD, PIN0_OFF_H + PIN_MULTIPLYER * (pin - 1), off_value >> 8);
 }
-
-// Get current PWM value
-int PCA9685::getPWM(uint8_t pin)
-{
-    int val = 0;
-    val = wiringPiI2CReadReg8(I2C_FD, PIN0_OFF_H + PIN_MULTIPLYER * (pin - 1));
-    val = val & 0xf;
-    val <<= 8;
-    val += wiringPiI2CReadReg8(I2C_FD, PIN0_OFF_L + PIN_MULTIPLYER * (pin - 1));
-    return val;
-}
