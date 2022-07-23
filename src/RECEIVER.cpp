@@ -71,5 +71,21 @@ int Receiver::channel(int chnnl)
     else if (chnnl < 0)
         chnnl = 0;
 
-    return receiverData[chnnl];
+    float data = receiverData[chnnl];
+
+    if (data > MAX_PWM || data < MIN_PWM)
+    {
+        switch (chnnl)
+        {
+        case 2:
+            data = 1000;
+            break;
+
+        default:
+            data = 1500;
+            break;
+        }
+    }
+
+    return data;
 }

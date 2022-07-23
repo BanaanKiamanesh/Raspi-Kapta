@@ -3,6 +3,8 @@
 
 // Registers
 #define MAIN_ADDRESS 0x08
+#define MAX_PWM 2000
+#define MIN_PWM 1000
 
 class Receiver
 {
