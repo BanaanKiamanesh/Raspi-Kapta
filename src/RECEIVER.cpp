@@ -40,9 +40,7 @@ void Receiver::readChannel()
 void Receiver::updateData()
 {
     readChannel();
-
-    for (int idx = 0; idx < 4; idx++)
-        receiverData[idx] = 0;
+    int tmpReceiverData[4] = {0, 0, 0, 0};
 
     // turning Ascii to Numbers
     for (int idx = 0; idx < 16; idx++)
@@ -52,13 +50,16 @@ void Receiver::updateData()
     for (int i = 0; i < 16; i++)
     {
         int idx = (int)i / 4;
-        receiverData[idx] += I2CDataBuf[i] * pow(10, counter);
+        tmpReceiverData[idx] += I2CDataBuf[i] * pow(10, counter);
 
         if (counter == 0)
             counter = 3;
         else
             counter--;
     }
+
+    for (int i = 0; i < 4; i++)
+        receiverData[i] = (1 - alpha) * receiverData[i] + tmpReceiverData[i] * alpha;
 }
 
 int Receiver::channel(int chnnl)

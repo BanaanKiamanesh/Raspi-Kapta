@@ -9,7 +9,8 @@ class Receiver
 private:
     int I2C_FD;
     unsigned char I2CDataBuf[16];
-    int receiverData[4];
+    float receiverData[4] = {1500, 1500, 1000, 1500};
+    float alpha = 0.015;
 
 public:
     Receiver();

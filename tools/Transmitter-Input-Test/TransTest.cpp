@@ -17,6 +17,8 @@ int main()
         std::cout << " - Roll : " << rx.channel(2);
         std::cout << " - Throttle : " << rx.channel(3);
         std::cout << " - Yaw : " << rx.channel(4) << "\n";
+
+        delay(4);
     }
 
     return 0;
