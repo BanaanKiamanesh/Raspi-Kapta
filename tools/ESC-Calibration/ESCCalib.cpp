@@ -94,7 +94,7 @@ int main()
     for (int i = 0; i < 4; i++)
         pca.setPWM(pins[i], 4000);
 
-    delay(50);
+    delay(120);
 
     for (int i = 0; i < 4; i++)
         pca.setPWM(pins[i], MIN_PWM);
