@@ -4,7 +4,7 @@ This is a Raspberry pi Based flight controller that can be applied to almost any
 
 The motivation was to create an open-source, modular, easy-to-maintain platform and foundation based on a processor with enough computational capability. So, each new algorithm can be implemented and tested easily on flying vehicles, no matter their computational cost.
 
-![circuit](images/circuit2.jpeg)
+![circuit](images/Final.jpg)
 
 ---
 
